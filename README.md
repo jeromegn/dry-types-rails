@@ -1,10 +1,10 @@
 # Dry::Data::Rails
 
-Really simple gem that will help you work with the `dry-data` gem in development.
+Really simple gem that will help you work with the [`dry-data`](https://github.com/dryrb/dry-data) gem in development.
 
 ## Raison d'être
 
-Rails reloads code quite often in development, this broke `Dry::Data` since it would register the same types multiple times.
+Rails reloads code quite often in development, this broke the usage of `Dry::Data` since it would register the same types multiple times and raise exceptions.
 
 ## Installation
 
