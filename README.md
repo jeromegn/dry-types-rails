@@ -1,6 +1,6 @@
-# Dry::Data::Rails
+# Dry::Types::Rails
 
-Really simple gem that will help you work with the [`dry-data`](https://github.com/dryrb/dry-data) gem in development.
+Really simple gem that will help you work with the [`dry-types`](https://github.com/dryrb/dry-types) gem in development.
 
 ## Raison d'être
 
@@ -11,7 +11,7 @@ Rails reloads code quite often in development, this broke the usage of `Dry::Dat
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'dry-data-rails'
+gem 'dry-types-rails'
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ Nothing to do, this is using `Rails::Railtie`, which means it gets loaded automa
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/jeromegn/dry-data-rails. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jeromegn/dry-types-rails. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
