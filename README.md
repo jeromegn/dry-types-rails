@@ -2,6 +2,10 @@
 
 Really simple gem that will help you work with the [`dry-types`](https://github.com/dryrb/dry-types) gem in development.
 
+## Current status: BROKEN, DO NOT USE.
+
+This gem does not work as intended. More information here: https://github.com/jeromegn/dry-types-rails/issues/2
+
 ## Raison d'être
 
 Rails reloads code quite often in development, this broke the usage of `Dry::Data` since it would register the same types multiple times and raise exceptions.
