@@ -15,8 +15,10 @@ Rails reloads code quite often in development, this broke the usage of `Dry::Typ
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'dry-types-rails'
+gem 'dry-types-rails', group: :development
 ```
+
+Note that it should __only__ be included in your development environment.
 
 ## Usage
 
@@ -29,4 +31,12 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/jerome
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+## Thanks
+
+- @AMHOL
+- @jeromegn
+- @pnomolos
+
+
 
