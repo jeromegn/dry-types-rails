@@ -2,21 +2,23 @@
 
 Really simple gem that will help you work with the [`dry-types`](https://github.com/dryrb/dry-types) gem in development.
 
-## Current status: BROKEN, DO NOT USE.
+## Current status: EXPERIMENTAL
 
-This gem does not work as intended. More information here: https://github.com/jeromegn/dry-types-rails/issues/2
+This gem currently "works for me", but as of right now I'm sure there are a number of edge cases that haven't been hit yet.  As those occur, please report them so I can add specs to test them.
 
 ## Raison d'être
 
-Rails reloads code quite often in development, this broke the usage of `Dry::Data` since it would register the same types multiple times and raise exceptions.
+Rails reloads code quite often in development, this broke the usage of `Dry::Types` since it would register the same types multiple times and raise exceptions.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'dry-types-rails'
+gem 'dry-types-rails', group: :development
 ```
+
+Note that it should __only__ be included in your development environment.
 
 ## Usage
 
@@ -30,3 +32,8 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/jerome
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
+## Thanks
+
+- @AMHOL
+- @jeromegn
+- @pnomolos
