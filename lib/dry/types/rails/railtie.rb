@@ -5,6 +5,8 @@ module Dry
         REGISTERED_TYPES = Concurrent::Array.new
 
         def register_class(klass, meth = :new)
+          return if TypesRegistration::REGISTERED_TYPES.include?(klass.to_s)
+
           super.tap do
             # Check to see if we need to remove the registered type
             autoloaded = ActiveSupport::Dependencies.will_unload?(klass)
@@ -13,7 +15,7 @@ module Dry
             #   so we have to see if we're in the middle of loading a missing constants
             autoloaded |= caller.any? { |line| line =~ /\:in.*?new_constants_in/ }
 
-            REGISTERED_TYPES << klass if autoloaded
+            TypesRegistration::REGISTERED_TYPES << klass.to_s if autoloaded
           end
         end
       end
@@ -26,7 +28,9 @@ module Dry
 
       class Railtie < ::Rails::Railtie
         config.to_prepare do
-          TypesRegistration::REGISTERED_TYPES.each do |type|
+          types = TypesRegistration::REGISTERED_TYPES.dup
+          types.each do |type|
+            TypesRegistration::REGISTERED_TYPES.delete(type)
             type = Dry::Types.identifier(type)
             Dry::Types.container._container.delete(type)
             Dry::Types.type_map.delete(type)
