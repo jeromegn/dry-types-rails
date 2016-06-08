@@ -11,7 +11,7 @@ module Dry
             # ActiveSupport::Dependencies.will_unload?(klass) won't return true yet
             #   if it's the first time a constant is being autoloaded
             #   so we have to see if we're in the middle of loading a missing constants
-            autoloaded |= caller(4).any? { |line| line =~ /\:in.*?new_constants_in/ }
+            autoloaded |= caller.any? { |line| line =~ /\:in.*?new_constants_in/ }
 
             REGISTERED_TYPES << klass if autoloaded
           end
