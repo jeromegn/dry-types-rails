@@ -1,6 +1,6 @@
 language: ruby
 rvm:
   - 2.2
-  - jruby
+  - jruby-20mode
   - rbx-2
 script: bundle exec rspec
