@@ -1,4 +1,4 @@
-# Dry::Types::Rails
+# Dry::Types::Rails [![Build Status](https://travis-ci.org/jeromegn/dry-types-rails.svg?branch=master)](https://travis-ci.org/jeromegn/dry-types-rails)
 
 Really simple gem that will help you work with the [`dry-types`](https://github.com/dryrb/dry-types) gem in development.
 
