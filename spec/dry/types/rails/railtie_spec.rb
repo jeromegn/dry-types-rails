@@ -95,10 +95,10 @@ describe Dry::Types::Rails::Railtie do
         end
 
         expect(Autoload::SchemaStruct).to respond_to(:previous_ref)
-        expect(Dry::Types[Autoload::SchemaStruct].primitive).to respond_to(:previous_ref)
+        expect(Dry::Types[Autoload::SchemaStruct]).to respond_to(:previous_ref)
         clear_autoload
         expect(Autoload::SchemaStruct).to_not respond_to(:previous_ref)
-        expect(Dry::Types[Autoload::SchemaStruct].primitive).to_not respond_to(:previous_ref)
+        expect(Dry::Types[Autoload::SchemaStruct]).to_not respond_to(:previous_ref)
       end
     end
   end
