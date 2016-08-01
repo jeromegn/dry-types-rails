@@ -4,18 +4,18 @@ module Dry
       module TypesRegistration
         REGISTERED_TYPES = Concurrent::Array.new
 
-        def register_class(klass, meth = :new)
-          return if TypesRegistration::REGISTERED_TYPES.include?(klass.to_s)
+        def register(name, type)
+          return if TypesRegistration::REGISTERED_TYPES.include?(name)
 
           super.tap do
             # Check to see if we need to remove the registered type
-            autoloaded = ActiveSupport::Dependencies.will_unload?(klass)
+            autoloaded = ActiveSupport::Dependencies.will_unload?(type)
             # ActiveSupport::Dependencies.will_unload?(klass) won't return true yet
             #   if it's the first time a constant is being autoloaded
             #   so we have to see if we're in the middle of loading a missing constants
             autoloaded |= caller.any? { |line| line =~ /\:in.*?new_constants_in/ }
 
-            TypesRegistration::REGISTERED_TYPES << klass.to_s if autoloaded
+            TypesRegistration::REGISTERED_TYPES << name if autoloaded
           end
         end
       end
