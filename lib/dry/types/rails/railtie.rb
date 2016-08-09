@@ -4,7 +4,8 @@ module Dry
       module TypesRegistration
         REGISTERED_TYPES = Concurrent::Array.new
 
-        def register(name, type)
+        def register(name, type = nil, &block)
+          return super unless type
           return if TypesRegistration::REGISTERED_TYPES.include?(name)
 
           super.tap do
